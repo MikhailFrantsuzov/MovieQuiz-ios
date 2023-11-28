@@ -1,5 +1,5 @@
 //
-//  ResultAlertPresenter.swift
+//  AlertPresenter.swift
 //  MovieQuiz
 //
 //  Created by Mikhail Frantsuzov on 14.11.2023.
@@ -8,28 +8,22 @@
 import Foundation
 import UIKit
 
-protocol ResultAlertPresenter {
-    
-    func show(result: AlertModel)
-}
-
-final class ResultAlertPresenterImplementation {
+final class AlertPresenter {
     private weak var viewController: UIViewController?
     
     init(viewController: UIViewController? = nil) {
         self.viewController = viewController
     }
-}
-
-extension ResultAlertPresenterImplementation: ResultAlertPresenter {
     func show(result: AlertModel) {
         let alert = UIAlertController(
-            title: alertModel.tittle,
-            message: alertModel.message,
+            title: result.title,
+            message: result.message,
             preferredStyle: .alert)
-        let action = UIAlertAction(title: alertModel.buttonText, style: .default) { _ in
-            alertModel.buttonAction()
-        }
+        let action = UIAlertAction(
+            title: result.buttonText,
+            style: .default) { _ in
+                result.buttonAction()
+            }
         alert.addAction(action)
         viewController?.present(alert, animated: true)
     }
