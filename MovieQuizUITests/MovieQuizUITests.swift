@@ -11,16 +11,16 @@ import XCTest
 class MovieQuizUITests: XCTestCase {
     
     var app: XCUIApplication!
-
+    
     override func setUpWithError() throws {
         try super.setUpWithError()
         
         app = XCUIApplication()
         app.launch()
-
+        
         continueAfterFailure = false
     }
-
+    
     override func tearDownWithError() throws {
         try super.tearDownWithError()
         

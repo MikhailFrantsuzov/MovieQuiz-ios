@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+protocol MovieQuizViewControllerProtocol: AnyObject {
+    
+    func showQuestion(quiz step: QuizStepViewModel)
+    func showLoadingIndicator()
+    func showFinalAlert(quiz result: QuizResultsViewModel)
+    func showErrorAlert(alertModel: AlertModel)
+    func hideLoadingIndicator()
+    func highlightImageBorder(isCorrectAnswer: Bool)
+    func switchOfButtons()
+}
